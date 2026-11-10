@@ -1,0 +1,337 @@
+{
+	"name": "title-tint",
+	"displayName": "Title Tint",
+	"description": "Tint the title bar per project so VS Code windows are easy to tell apart.",
+	"version": "0.1.0",
+	"publisher": "baawolf",
+	"author": "Gavin Wood",
+	"license": "MIT",
+	"icon": "images/icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/GavWood/TitleTint.git"
+	},
+	"bugs": {
+		"url": "https://github.com/GavWood/TitleTint/issues"
+	},
+	"homepage": "https://github.com/GavWood/TitleTint#readme",
+	"keywords": [
+		"title bar",
+		"colour",
+		"color",
+		"window",
+		"workspace",
+		"tint"
+	],
+	"engines": {
+		"vscode": "^1.80.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"main": "./extension.js",
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"scripts": {
+		"package": "vsce package"
+	},
+	"contributes": {
+		"commands": [
+			{
+				"command": "titleTint.dark.red",
+				"title": "Red",
+				"category": "Title Tint Dark"
+			},
+			{
+				"command": "titleTint.dark.orange",
+				"title": "Orange",
+				"category": "Title Tint Dark"
+			},
+			{
+				"command": "titleTint.dark.amber",
+				"title": "Amber",
+				"category": "Title Tint Dark"
+			},
+			{
+				"command": "titleTint.dark.green",
+				"title": "Green",
+				"category": "Title Tint Dark"
+			},
+			{
+				"command": "titleTint.dark.teal",
+				"title": "Teal",
+				"category": "Title Tint Dark"
+			},
+			{
+				"command": "titleTint.dark.blue",
+				"title": "Blue",
+				"category": "Title Tint Dark"
+			},
+			{
+				"command": "titleTint.dark.indigo",
+				"title": "Indigo",
+				"category": "Title Tint Dark"
+			},
+			{
+				"command": "titleTint.dark.purple",
+				"title": "Purple",
+				"category": "Title Tint Dark"
+			},
+			{
+				"command": "titleTint.dark.pink",
+				"title": "Pink",
+				"category": "Title Tint Dark"
+			},
+			{
+				"command": "titleTint.dark.slate",
+				"title": "Slate",
+				"category": "Title Tint Dark"
+			},
+			{
+				"command": "titleTint.dark.auto",
+				"title": "Auto (from Project Name)",
+				"category": "Title Tint Dark"
+			},
+			{
+				"command": "titleTint.dark.random",
+				"title": "Random",
+				"category": "Title Tint Dark"
+			},
+			{
+				"command": "titleTint.light.red",
+				"title": "Red",
+				"category": "Title Tint Light"
+			},
+			{
+				"command": "titleTint.light.orange",
+				"title": "Orange",
+				"category": "Title Tint Light"
+			},
+			{
+				"command": "titleTint.light.amber",
+				"title": "Amber",
+				"category": "Title Tint Light"
+			},
+			{
+				"command": "titleTint.light.green",
+				"title": "Green",
+				"category": "Title Tint Light"
+			},
+			{
+				"command": "titleTint.light.teal",
+				"title": "Teal",
+				"category": "Title Tint Light"
+			},
+			{
+				"command": "titleTint.light.blue",
+				"title": "Blue",
+				"category": "Title Tint Light"
+			},
+			{
+				"command": "titleTint.light.indigo",
+				"title": "Indigo",
+				"category": "Title Tint Light"
+			},
+			{
+				"command": "titleTint.light.purple",
+				"title": "Purple",
+				"category": "Title Tint Light"
+			},
+			{
+				"command": "titleTint.light.pink",
+				"title": "Pink",
+				"category": "Title Tint Light"
+			},
+			{
+				"command": "titleTint.light.slate",
+				"title": "Slate",
+				"category": "Title Tint Light"
+			},
+			{
+				"command": "titleTint.light.auto",
+				"title": "Auto (from Project Name)",
+				"category": "Title Tint Light"
+			},
+			{
+				"command": "titleTint.light.random",
+				"title": "Random",
+				"category": "Title Tint Light"
+			},
+			{
+				"command": "titleTint.custom",
+				"title": "Custom Hex…",
+				"category": "Title Tint"
+			},
+			{
+				"command": "titleTint.pick",
+				"title": "Pick Window Colour…",
+				"category": "Title Tint"
+			},
+			{
+				"command": "titleTint.clear",
+				"title": "Clear Window Colour",
+				"category": "Title Tint"
+			}
+		],
+		"submenus": [
+			{
+				"id": "titleTint.menu",
+				"label": "Title Tint"
+			},
+			{
+				"id": "titleTint.dark",
+				"label": "Dark Colours (White Text)"
+			},
+			{
+				"id": "titleTint.light",
+				"label": "Light Colours (Dark Text)"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"submenu": "titleTint.menu",
+					"group": "z_titleTint"
+				}
+			],
+			"editor/title/context": [
+				{
+					"submenu": "titleTint.menu",
+					"group": "z_titleTint"
+				}
+			],
+			"explorer/context": [
+				{
+					"submenu": "titleTint.menu",
+					"group": "z_titleTint"
+				}
+			],
+			"titleTint.menu": [
+				{
+					"submenu": "titleTint.dark",
+					"group": "1_tones@1"
+				},
+				{
+					"submenu": "titleTint.light",
+					"group": "1_tones@2"
+				},
+				{
+					"command": "titleTint.custom",
+					"group": "2_more@1"
+				},
+				{
+					"command": "titleTint.pick",
+					"group": "2_more@2"
+				},
+				{
+					"command": "titleTint.clear",
+					"group": "3_clear@1"
+				}
+			],
+			"titleTint.dark": [
+				{
+					"command": "titleTint.dark.red",
+					"group": "1_presets@1"
+				},
+				{
+					"command": "titleTint.dark.orange",
+					"group": "1_presets@2"
+				},
+				{
+					"command": "titleTint.dark.amber",
+					"group": "1_presets@3"
+				},
+				{
+					"command": "titleTint.dark.green",
+					"group": "1_presets@4"
+				},
+				{
+					"command": "titleTint.dark.teal",
+					"group": "1_presets@5"
+				},
+				{
+					"command": "titleTint.dark.blue",
+					"group": "1_presets@6"
+				},
+				{
+					"command": "titleTint.dark.indigo",
+					"group": "1_presets@7"
+				},
+				{
+					"command": "titleTint.dark.purple",
+					"group": "1_presets@8"
+				},
+				{
+					"command": "titleTint.dark.pink",
+					"group": "1_presets@9"
+				},
+				{
+					"command": "titleTint.dark.slate",
+					"group": "1_presets@10"
+				},
+				{
+					"command": "titleTint.dark.auto",
+					"group": "2_generated@1"
+				},
+				{
+					"command": "titleTint.dark.random",
+					"group": "2_generated@2"
+				}
+			],
+			"titleTint.light": [
+				{
+					"command": "titleTint.light.red",
+					"group": "1_presets@1"
+				},
+				{
+					"command": "titleTint.light.orange",
+					"group": "1_presets@2"
+				},
+				{
+					"command": "titleTint.light.amber",
+					"group": "1_presets@3"
+				},
+				{
+					"command": "titleTint.light.green",
+					"group": "1_presets@4"
+				},
+				{
+					"command": "titleTint.light.teal",
+					"group": "1_presets@5"
+				},
+				{
+					"command": "titleTint.light.blue",
+					"group": "1_presets@6"
+				},
+				{
+					"command": "titleTint.light.indigo",
+					"group": "1_presets@7"
+				},
+				{
+					"command": "titleTint.light.purple",
+					"group": "1_presets@8"
+				},
+				{
+					"command": "titleTint.light.pink",
+					"group": "1_presets@9"
+				},
+				{
+					"command": "titleTint.light.slate",
+					"group": "1_presets@10"
+				},
+				{
+					"command": "titleTint.light.auto",
+					"group": "2_generated@1"
+				},
+				{
+					"command": "titleTint.light.random",
+					"group": "2_generated@2"
+				}
+			]
+		}
+	},
+	"devDependencies": {
+		"@vscode/vsce": "4.1.0"
+	}
+}
